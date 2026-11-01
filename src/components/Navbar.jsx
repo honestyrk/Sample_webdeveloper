@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FlowButton } from "./ui/flow-button";
+import { GlowButton } from "./ui/glow-button";
 
 const navLinks = [
   { label: "About", href: "about" },
@@ -63,11 +64,9 @@ export default function Navbar() {
             </button>
           ))}
           <div className="navbar__cta">
-            <FlowButton
-              text="Let's Work Together"
-              variant="accent"
+            <GlowButton
+              label="Let's Work Together"
               onClick={() => handleNavClick("contact")}
-              aria-label="Let's work together"
             />
           </div>
         </nav>
@@ -109,12 +108,10 @@ export default function Navbar() {
                 {link.label}
               </motion.button>
             ))}
-            <FlowButton
-              text="Let's Work Together"
-              variant="accent"
+            <GlowButton
+              label="Let's Work Together"
               className="mobile-menu__cta"
               onClick={() => handleNavClick("contact")}
-              aria-label="Let's work together"
             />
           </motion.div>
         )}

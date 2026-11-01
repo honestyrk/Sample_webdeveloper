@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import AnimatedButton from "./ui/AnimatedButton";
-import LycorisFlower from "./ui/LycorisFlower";
+import { FloatingPaths } from "./ui/background-paths";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -41,23 +41,12 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="hero section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Lycoris red-chrome spider lily — WebGL background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <LycorisFlower
-          crimson="#e3131b"
-          florets={6}
-          seed={7}
-          alive={true}
-          offsetX={0.42}
-          offsetY={0.05}
-          size={0.95}
-          elevation={14}
-          spinInit={0.4}
-          stemFrac={0.45}
-        />
-      </div>
-      <div className="hero__inner" style={{ position: 'relative', zIndex: 1 }}>
+    <section id="hero" className="hero section">
+      {/* Floating path background — two mirrored layers */}
+      <FloatingPaths position={1} />
+      <FloatingPaths position={-1} />
+
+      <div className="hero__inner">
         {/* Text content */}
         <div className="hero__content">
           <motion.div
@@ -68,7 +57,7 @@ export default function Hero() {
             custom={0}
           >
             <span className="hero__badge-dot" aria-hidden="true" />
-            Available for Freelance Projects
+            Available for Projects
           </motion.div>
 
           <motion.h1
@@ -78,8 +67,8 @@ export default function Hero() {
             animate="visible"
             custom={1}
           >
-            We Build Websites for our{" "}
-            <span className="hero__title-accent">Families</span>
+            We Create a Websites for {" "}
+            <span className="hero__title-accent">Professionals</span>
           </motion.h1>
 
           <motion.p
@@ -101,7 +90,7 @@ export default function Hero() {
             custom={3}
           >
             <AnimatedButton
-              text="Explore"
+              text="Show More"
               onClick={scrollToProjects}
             />
           </motion.div>

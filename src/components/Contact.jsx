@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Link, ArrowUpRight, CheckCircle, Phone } from "lucide-react";
+import { Mail, ArrowUpRight, CheckCircle, Phone } from "lucide-react";
 import Button from "./Button";
 import { useParticleCanvas } from "../hooks/useParticleCanvas";
 
@@ -17,8 +17,14 @@ const contactLinks = [
   {
     icon: Phone,
     label: "WhatsApp",
-    value: "+91 95972 56644",
-    href: "https://wa.me/919597256644",
+    value: "+91 98765 43101",
+    href: "https://wa.me/919876543101",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "honestyrk@gmail.com",
+    href: "mailto:honestyrk@gmail.com",
   },
 ];
 
@@ -73,7 +79,7 @@ export default function Contact() {
       .filter(Boolean)
       .join("\n");
 
-    const waUrl = `https://wa.me/919597256644?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/919876543101?text=${encodeURIComponent(text)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
 
     setSubmitting(false);
